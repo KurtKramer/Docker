@@ -13,12 +13,20 @@ RUN apt-get update && \
 		libsqlite3-dev \
 		wget
 		
+		
+RUN apt-get update && \
+    apt-get install -y \
+        libncurses5-dev \
+        libreadline6-dev \
+        libgdbm-dev \
+        liblzma-dev \
+        tk8.5-dev
+		
 RUN apt upgrade  -y
 
+ADD https://www.python.org/ftp/python/3.4.9/Python-3.4.9.tgz  /
 ADD Python-3.4.9.tgz  /
 
-WORKDIR /Python-3.4.9
+RUN cd /Python-3.4.9 && ./configure && make -j 2 && make install
 
-##CMD ./configure
-##RUN make -j 4
-##RUN make install
+
