@@ -25,7 +25,7 @@ RUN apt-get update && \
 RUN apt upgrade  -y
 
 ADD https://www.python.org/ftp/python/3.4.9/Python-3.4.9.tgz  /
-ADD Python-3.4.9.tgz  /
+RUN tar -xvf Python-3.4.9.tgz
 
 RUN cd /Python-3.4.9 && ./configure && make -j 2 && make install
 
