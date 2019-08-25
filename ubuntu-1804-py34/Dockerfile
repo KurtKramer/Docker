@@ -20,13 +20,17 @@ RUN apt-get update && \
         libreadline6-dev \
         libgdbm-dev \
         liblzma-dev \
-        tk8.5-dev
+        tk8.5-dev  \
+		libssl1.0 \
+		vim
 		
 RUN apt upgrade  -y
 
-ADD https://www.python.org/ftp/python/3.4.9/Python-3.4.9.tgz  /
-RUN tar -xvf Python-3.4.9.tgz
+RUN apt-get install libssl1.0
 
-RUN cd /Python-3.4.9 && ./configure && make -j 2 && make install
+ADD https://www.python.org/ftp/python/3.4.10/Python-3.4.10.tgz  /
+RUN tar -xvf Python-3.4.10.tgz
+
+RUN cd /Python-3.4.10 && ./configure && make -j 2 && make install
 
 
