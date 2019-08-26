@@ -13,7 +13,6 @@ RUN apt-get update && \
 		libsqlite3-dev \
 		wget
 		
-		
 RUN apt-get update && \
     apt-get install -y \
         libncurses5-dev \
@@ -32,5 +31,3 @@ ADD https://www.python.org/ftp/python/3.4.10/Python-3.4.10.tgz  /
 RUN tar -xvf Python-3.4.10.tgz
 
 RUN cd /Python-3.4.10 && ./configure && make -j 2 && make install
-
-
